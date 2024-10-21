@@ -9,10 +9,10 @@ const form = document.querySelector('.feedback-form');
 const emailInput = form.elements.email;
 const messageInput = form.elements.message;
 
-addEventListener('input', handleInput);
+form.addEventListener('input', handleInput);
 
 function handleInput(event) {
-  formData[event.target.name] = event.target.value;
+  formData[event.target.name] = event.target.value.trim();
   toLocalStorage();
 }
 
@@ -29,7 +29,7 @@ function loadData() {
   }
 }
 
-addEventListener('submit', handleSumbit);
+form.addEventListener('submit', handleSumbit);
 
 function handleSumbit(event) {
   event.preventDefault();
